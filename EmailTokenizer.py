@@ -12,7 +12,8 @@ class AdvancedEmailTokenizer:
             'url': r'https?://\S+|www\.\S+',
             'phone': r'\b(?:\+\d{1,3}\d{6,14}|(?:\d{3}[-.]?){2}\d{4})\b',
             'date': r'\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b|\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{1,2},? \d{4}\b',
-            'time': r'\b\d{1,2}:\d{2}(?::\d{2})?\b(?: [aApP][mM])?\b'
+            'date_punctuation': r'\b\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?(?=[.,;:!?])',
+            'time': r'\b\d{1,2}:\d{2}(?::\d{2})?\b(?: [aApP][mM])?\b',  
         }
         
         # Combined pattern for special tokens
@@ -50,6 +51,8 @@ class AdvancedEmailTokenizer:
                 tokens.extend(self.word_tokenizer.tokenize(content))
         
         return tokens
+
+
 
 # Example usage
 email_text = """
