@@ -26,7 +26,7 @@ class BigramLanguageModel:
         print(f"Loading {self.num_sentences} sentences from {self.corpus_name} corpus ({self.category} category)...")
         sentences = brown.sents(categories=self.category)[:self.num_sentences]
         
-        # Add tokens <s> và </s> for marking the begin/end of a sentence
+        # Add tokens <s> and </s> for marking the begin/end of a sentence
         processed_sentences = []
         for sent in sentences:
             # Add start and end tokens, and lowercase
